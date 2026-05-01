@@ -55,15 +55,26 @@ body {
 .profile-name {
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     line-height: 1.3;
 }
 
 .profile-bio {
     font-size: 14px;
     color: var(--text-color);
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     line-height: 1.4;
+}
+
+.profile-bio:last-of-type {
+    margin-bottom: 18px;
+}
+
+.profile-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 .social-links {
@@ -88,6 +99,88 @@ body {
 .social-link svg {
     width: 18px;
     height: 18px;
+}
+
+.shrug-guy {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    font-size: 11px;
+    color: var(--text-color);
+    white-space: nowrap;
+    cursor: default;
+    user-select: none;
+    letter-spacing: 0;
+    margin-left: 8px;
+}
+
+.shrug-guy .shrug-arm,
+.shrug-guy .shrug-face {
+    display: inline-block;
+    transform-origin: center;
+}
+
+.shrug-guy .shrug-face {
+    animation: shrug-face 2.4s ease-in-out infinite;
+}
+
+.shrug-guy .shrug-arm-l {
+    transform-origin: 100% 100%;
+    animation: shrug-arm-l 2.4s ease-in-out infinite;
+}
+
+.shrug-guy .shrug-arm-r {
+    transform-origin: 0% 100%;
+    animation: shrug-arm-r 2.4s ease-in-out infinite;
+}
+
+.shrug-guy:hover .shrug-face,
+.shrug-guy:hover .shrug-arm-l,
+.shrug-guy:hover .shrug-arm-r {
+    animation-duration: 0.7s;
+}
+
+@keyframes shrug-face {
+    0%, 30%, 100% {
+        transform: translateY(0) scaleY(1);
+    }
+    50%, 70% {
+        transform: translateY(-2px) scaleY(0.96);
+    }
+    85% {
+        transform: translateY(0) scaleY(1);
+    }
+}
+
+@keyframes shrug-arm-l {
+    0%, 30%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50%, 70% {
+        transform: translateY(-5px) rotate(-22deg);
+    }
+    85% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes shrug-arm-r {
+    0%, 30%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50%, 70% {
+        transform: translateY(-5px) rotate(22deg);
+    }
+    85% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .shrug-guy .shrug-arm,
+    .shrug-guy .shrug-face {
+        animation: none;
+    }
 }
 
 /* Section Titles */
